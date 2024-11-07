@@ -3,7 +3,7 @@ import Header from './components/Header.jsx';
 import CoreConcept from './components/CoreConcept.jsx';
 import TabButton from './components/TabButton.jsx';
 
-import { useState } from 'react';
+import { useState, Fragment } from 'react';
 import { EXAMPLES } from './data.js';
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
   }
 
   return (
-    <div>
+    <Fragment>
       <Header />
       <main>
         <section id="core-concepts">
@@ -47,7 +47,7 @@ function App() {
           {tabContent}
         </section>
       </main>
-    </div>
+    </Fragment>
   );
 }
 
