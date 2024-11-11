@@ -1,28 +1,13 @@
-const initialGameBoard = [
-  [null, null, null],
-  [null, null, null],
-  [null, null, null],
-];
-
-export default function GameBoard({ onSquareSelect, players }) {
-  let gameBoard = initialGameBoard;
-
-  for (const player of players) {
-    const { cell, playerName } = player;
-    gameBoard[cell.row][cell.col] = playerName;
-  }
+export default function GameBoard({ onSquareSelect, board }) {
 
   return (
     <ol id="game-board">
-      {gameBoard.map((row, rowIndex) => (
+      {board.map((row, rowIndex) => (
         <li key={rowIndex}>
           <ol>
             {row.map((cell, colIndex) => (
               <li key={colIndex}>
-                <button
-                  onClick={() => onSquareSelect(rowIndex, colIndex)}
-                  disabled={cell !== null}
-                >
+                <button onClick={() => onSquareSelect(rowIndex, colIndex)} disabled={cell !== null}>
                   {cell}
                 </button>
               </li>
